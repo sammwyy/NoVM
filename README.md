@@ -11,6 +11,9 @@ NoVM is a tool designed to hide virtual machines (VMs) from malicious actors.
 
 To use NoVM, you can run the following command:
 
+> [!WARNING]
+> Do not run this software in a real environment, as it may destabilize your system or render it unusable. By default, NoVM will not run if it does not detect any traces of a virtualizing agent.
+
 ```bash
 novm --help
 ```
