@@ -9,7 +9,7 @@ use tracing_subscriber;
 #[derive(Parser)]
 #[clap(
     name = "NoVM",
-    version = "1.0",
+    version = "0.1.0",
     about = "A tool to hide virtual machines (VMs) from malicious actors."
 )]
 struct Cli {
