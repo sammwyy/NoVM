@@ -1,0 +1,8 @@
+[package]
+name = "novm-vmware"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+novm-core = { path = "../novm-core" }
+tracing.workspace = true

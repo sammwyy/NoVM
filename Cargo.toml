@@ -1,0 +1,19 @@
+[package]
+name = "novm"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tracing.workspace = true
+clap = "4.5.20"
+clap_derive = "4.5.18"
+tracing-subscriber = "0.3.18"
+
+novm-core = { path = "novm-core" }
+novm-vmware = { path = "novm-vmware" }
+
+[workspace]
+members = ["novm-core", "novm-vmware"]
+
+[workspace.dependencies]
+tracing = "0.1.40"
