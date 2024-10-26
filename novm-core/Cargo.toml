@@ -6,6 +6,7 @@ edition = "2021"
 [dependencies]
 rand = "0.8.5"
 sysinfo = "0.32.0"
-winreg = "0.52.0"
-
 tracing.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+winreg = "0.52.0"

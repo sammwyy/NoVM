@@ -1,24 +1,26 @@
-use novm_core::{detect_os, OSType, VMPlatform};
-use unix::VmwareUnix;
-use windows::VmwareWin32;
-
+#[cfg(target_os = "linux")]
 mod unix;
+#[cfg(target_os = "windows")]
 mod windows;
 
-pub fn get_vmware() -> Box<dyn VMPlatform> {
-    let os = detect_os();
+use novm_core::VMPlatform;
+#[cfg(target_os = "linux")]
+use unix::VmwareUnix;
+#[cfg(target_os = "windows")]
+use windows::VmwareWin32;
 
-    match os {
-        OSType::Unix => Box::new(VmwareUnix {}),
-        OSType::Windows => Box::new(VmwareWin32 {}),
-    }
+pub fn get_vmware() -> Box<dyn VMPlatform> {
+    #[cfg(target_os = "windows")]
+    return Box::new(VmwareWin32 {});
+
+    #[cfg(target_os = "linux")]
+    return Box::new(VmwareUnix {});
 }
 
 pub fn is_vmware() -> bool {
-    let os = detect_os();
+    #[cfg(target_os = "windows")]
+    return windows::detect();
 
-    match os {
-        OSType::Unix => unix::detect(),
-        OSType::Windows => windows::detect(),
-    }
+    #[cfg(target_os = "linux")]
+    return unix::detect();
 }

@@ -3,10 +3,10 @@ use std::{ffi::OsStr, fs, path::Path, process::Command};
 use rand::{distributions::Alphanumeric, thread_rng, Rng};
 use sysinfo::System;
 use tracing::{error, info, warn};
-use winreg::enums::HKEY_LOCAL_MACHINE;
+
 #[cfg(target_os = "windows")]
 use winreg::{
-    enums::{KEY_QUERY_VALUE, KEY_SET_VALUE},
+    enums::{HKEY_LOCAL_MACHINE, KEY_QUERY_VALUE, KEY_SET_VALUE},
     RegKey,
 };
 

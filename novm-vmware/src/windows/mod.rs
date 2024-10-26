@@ -4,6 +4,7 @@ use novm_core::{
     are_processes_running, kill_processes_by_name, obfuscate_file, obfuscate_registry_entries,
     remove_registry_key, remove_registry_value, CloakSettings, VMPlatform,
 };
+
 use tracing::info;
 
 const VMWARE_PROCESSES: [&str; 7] = [
